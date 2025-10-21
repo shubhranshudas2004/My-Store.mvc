@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Saved Successfully</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6ffed;
+            color: #2e7d32;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .box {
+            display: inline-block;
+            background: #fff;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #aaa;
+        }
+
+        h2 { color: #2e7d32; }
+
+        .product-info p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #2e7d32;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        a:hover { background-color: #1b5e20; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>✅ Product Saved Successfully!</h2>
+
+        <div class="product-info">
+            <p th:text="'Product Brand: ' + ${product.brand}"></p>
+            <p th:text="'Product Name: ' + ${product.name}"></p>
+            <p th:text="'Product Quantity: ' + ${product.quantity}"></p>
+            <p th:text="'Product Price: ₹' + ${product.price}"></p>
+            <p th:text="'Product Description: ' + ${product.description}"></p>
+			<p>
+			    <img th:if="${product.imageBase64 != null}"
+			         th:src="'data:' + ${product.imageType} + ';base64,' + ${product.imageBase64}"
+			         alt="Product Image" width="100" />
+			</p>
+
+
+        </div>
+
+        <a th:href="@{/add}">Add Another Product</a>
+		<a th:href="@{/products}">Go to product list</a>
+        
+    </div>
+</body>
+</html>

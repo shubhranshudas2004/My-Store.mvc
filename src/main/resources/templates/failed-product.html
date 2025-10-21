@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Save Failed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffebee;
+            color: #c62828;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .box {
+            display: inline-block;
+            background: #fff;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #aaa;
+        }
+        h2 { color: #c62828; }
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #c62828;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        a:hover { background-color: #b71c1c; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>❌ Product Save Failed!</h2>
+        <p>Something went wrong while saving your product.</p>
+        <p th:text="${message}"></p>
+
+        <br>
+        <a href="/product">Try Again</a>
+    </div>
+</body>
+</html>

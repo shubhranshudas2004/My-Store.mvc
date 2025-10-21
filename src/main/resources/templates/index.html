@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Store | Home</title>
+    <link rel="stylesheet" th:href="@{/style1.css}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>🛍️ My Store</h1>
+        <nav>
+            <a th:href="@{/home}">🏠Home</a>
+            <a th:href="@{/add}">➕Add Product</a>
+            <a th:href="@{/products}">🛒View Products</a>
+            <a th:href="@{/contactus}">📲Contact Us</a>
+            <a th:href="@{/aboutus}">👤About Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Store Banner" class="banner-img">
+            <h2>Welcome to My Store</h2>
+            <p>Manage your products easily — add, view, and search all from one place.</p>
+            <div class="icon-section">
+                <img src="https://cdn-icons-png.flaticon.com/512/3524/3524386.png" alt="Products Icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Search Icon">
+            </div>
+            <a th:href="@{/products}" class="cta-button">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 My Store | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
