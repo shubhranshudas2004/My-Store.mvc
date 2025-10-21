@@ -2,8 +2,11 @@
 FROM maven:3.9.3-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Copy pom.xml and source code
+# Copy only pom.xml first for dependency caching
 COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Copy the rest of the project
 COPY src ./src
 
 # Build the project
@@ -13,8 +16,9 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-# Copy the built JAR from the previous stage
-COPY --from=build /app/target/myapp-0.0.1-SNAPSHOT.jar app.jar
+# Copy the JAR from the build stage
+# Make sure the JAR name matches the actual file in target/
+COPY --from=build /app/target/*.jar app.jar
 
 # Expose port
 EXPOSE 8080
